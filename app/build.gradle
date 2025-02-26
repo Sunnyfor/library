@@ -8,6 +8,11 @@ plugins {
 android {
     namespace 'com.sunny.library'
     compileSdk rootProject.ext.versions.compileSdk
+    kotlin {
+        jvmToolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+    }
 
     defaultConfig {
         minSdk rootProject.ext.versions.minSdk

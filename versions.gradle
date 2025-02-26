@@ -1,0 +1,21 @@
+ext {
+    versions = [
+            applicationId: "com.sunny.library",
+            versionCode  : 5,
+            versionName  : "1.1.21",
+
+            compileSdk   : 34,
+            minSdk       : 23,
+            targetSdk    : 33,
+
+            ZyFrame      : "3.0.21_book",//ZyFrame SDK版本
+    ]
+
+    // 各模块通用部分依赖
+    dependencies = [
+            "java-unit"    : "junit:junit:4.13.2",
+            "android-unit" : "androidx.test.ext:junit:1.1.3",
+            "espresso-core": "androidx.test.espresso:espresso-core:3.4.0",
+            "core-ktx"     : "androidx.core:core-ktx:1.6.0",
+    ]
+}

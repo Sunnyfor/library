@@ -74,7 +74,7 @@ val Context.bottomBackground: Int
     get() = ThemeStore.bottomBackground(this)
 
 val Context.primaryTextColor: Int
-    get() = getPrimaryTextColor(isDarkTheme)
+    get() = ThemeStore.textColorPrimary(this)
 
 val Context.secondaryTextColor: Int
     get() = getSecondaryTextColor(isDarkTheme)

@@ -83,7 +83,11 @@ abstract class BaseReadBookActivity :
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
-        binding.navigationBar.setBackgroundColor(bottomBackground)
+        try {
+            binding.navigationBar
+        } catch (e: Exception) {
+            TODO("Not yet implemented")
+        }.setBackgroundColor(bottomBackground)
         viewModel.permissionDenialLiveData.observe(this) {
             selectBookFolderResult.launch {
                 mode = HandleFileContract.DIR_SYS

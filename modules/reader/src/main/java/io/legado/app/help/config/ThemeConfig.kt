@@ -210,68 +210,68 @@ object ThemeConfig {
      * 更新主题
      */
     fun applyTheme(context: Context, orientation: Int = 1) = with(context) {
-        when {
-            AppConfig.isEInkMode -> {
-                ThemeStore.editTheme(this)
-                    .primaryColor(Color.WHITE)
-                    .accentColor(Color.BLACK)
-                    .backgroundColor(Color.WHITE)
-                    .bottomBackground(Color.WHITE)
-                    .apply()
-            }
-
-            AppConfig.isNightTheme -> {
-                val primary =
-                    getPrefInt(PreferKey.cNPrimary, getCompatColor(R.color.md_blue_grey_600))
-                val accent =
-                    getPrefInt(PreferKey.cNAccent, getCompatColor(R.color.md_deep_orange_800))
-                var background =
-                    getPrefInt(PreferKey.cNBackground, getCompatColor(R.color.md_grey_900))
-                if (ColorUtils.isColorLight(background)) {
-                    background = getCompatColor(R.color.md_grey_900)
-                    putPrefInt(PreferKey.cNBackground, background)
-                }
-                val bBackground =
-                    getPrefInt(PreferKey.cNBBackground, getCompatColor(R.color.md_grey_850))
-                ThemeStore.editTheme(this)
-                    .primaryColor(ColorUtils.withAlpha(primary, 1f))
-                    .accentColor(ColorUtils.withAlpha(accent, 1f))
-                    .backgroundColor(ColorUtils.withAlpha(background, 1f))
-                    .bottomBackground(ColorUtils.withAlpha(bBackground, 1f))
-                    .apply()
-            }
-
-            else -> {
-                val primary =
-                    if (orientation == 2) {
-                        getPrefInt(PreferKey.cPrimary, getCompatColor(R.color.color_theme_land))
-                    } else {
-                        getPrefInt(PreferKey.cPrimary, getCompatColor(R.color.color_theme))
-                    }
-
-                val accent =
-                    if (orientation == 2) {
-                        getPrefInt(PreferKey.cPrimary, getCompatColor(R.color.color_theme_land))
-                    } else {
-                        getPrefInt(PreferKey.cAccent, getCompatColor(R.color.color_theme))
-                    }
-
-                var background =
-                    getPrefInt(PreferKey.cBackground, getCompatColor(R.color.md_grey_100))
-                if (!ColorUtils.isColorLight(background)) {
-                    background = getCompatColor(R.color.md_grey_100)
-                    putPrefInt(PreferKey.cBackground, background)
-                }
-                val bBackground =
-                    getPrefInt(PreferKey.cBBackground, getCompatColor(R.color.md_grey_200))
-                ThemeStore.editTheme(this)
-                    .primaryColor(ColorUtils.withAlpha(primary, 1f))
-                    .accentColor(ColorUtils.withAlpha(accent, 1f))
-                    .backgroundColor(ColorUtils.withAlpha(background, 1f))
-                    .bottomBackground(ColorUtils.withAlpha(bBackground, 1f))
-                    .apply()
-            }
-        }
+//        when {
+//            AppConfig.isEInkMode -> {
+//                ThemeStore.editTheme(this)
+//                    .primaryColor(Color.WHITE)
+//                    .accentColor(Color.BLACK)
+//                    .backgroundColor(Color.WHITE)
+//                    .bottomBackground(Color.WHITE)
+//                    .apply()
+//            }
+//
+//            AppConfig.isNightTheme -> {
+//                val primary =
+//                    getPrefInt(PreferKey.cNPrimary, getCompatColor(R.color.md_blue_grey_600))
+//                val accent =
+//                    getPrefInt(PreferKey.cNAccent, getCompatColor(R.color.md_deep_orange_800))
+//                var background =
+//                    getPrefInt(PreferKey.cNBackground, getCompatColor(R.color.md_grey_900))
+//                if (ColorUtils.isColorLight(background)) {
+//                    background = getCompatColor(R.color.md_grey_900)
+//                    putPrefInt(PreferKey.cNBackground, background)
+//                }
+//                val bBackground =
+//                    getPrefInt(PreferKey.cNBBackground, getCompatColor(R.color.md_grey_850))
+//                ThemeStore.editTheme(this)
+//                    .primaryColor(ColorUtils.withAlpha(primary, 1f))
+//                    .accentColor(ColorUtils.withAlpha(accent, 1f))
+//                    .backgroundColor(ColorUtils.withAlpha(background, 1f))
+//                    .bottomBackground(ColorUtils.withAlpha(bBackground, 1f))
+//                    .apply()
+//            }
+//
+//            else -> {
+//                val primary =
+//                    if (orientation == 2) {
+//                        getPrefInt(PreferKey.cPrimary, getCompatColor(R.color.color_theme_land))
+//                    } else {
+//                        getPrefInt(PreferKey.cPrimary, getCompatColor(R.color.color_theme))
+//                    }
+//
+//                val accent =
+//                    if (orientation == 2) {
+//                        getPrefInt(PreferKey.cPrimary, getCompatColor(R.color.color_theme_land))
+//                    } else {
+//                        getPrefInt(PreferKey.cAccent, getCompatColor(R.color.color_theme))
+//                    }
+//
+//                var background =
+//                    getPrefInt(PreferKey.cBackground, getCompatColor(R.color.md_grey_100))
+//                if (!ColorUtils.isColorLight(background)) {
+//                    background = getCompatColor(R.color.md_grey_100)
+//                    putPrefInt(PreferKey.cBackground, background)
+//                }
+//                val bBackground =
+//                    getPrefInt(PreferKey.cBBackground, getCompatColor(R.color.md_grey_200))
+//                ThemeStore.editTheme(this)
+//                    .primaryColor(ColorUtils.withAlpha(primary, 1f))
+//                    .accentColor(ColorUtils.withAlpha(accent, 1f))
+//                    .backgroundColor(ColorUtils.withAlpha(background, 1f))
+//                    .bottomBackground(ColorUtils.withAlpha(bBackground, 1f))
+//                    .apply()
+//            }
+//        }
     }
 
     @Keep

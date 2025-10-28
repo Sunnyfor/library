@@ -19,6 +19,7 @@ import com.google.android.material.appbar.AppBarLayout
 import io.legado.app.R
 import io.legado.app.lib.theme.elevation
 import io.legado.app.lib.theme.primaryColor
+import io.legado.app.lib.theme.primaryTextColor
 import io.legado.app.utils.activity
 import io.legado.app.utils.navigationBarHeight
 import io.legado.app.utils.statusBarHeight
@@ -246,6 +247,8 @@ class TitleBar @JvmOverloads constructor(
                 it.setSupportActionBar(toolbar)
                 it.supportActionBar?.setDisplayHomeAsUpEnabled(displayHomeAsUp)
             }
+            val textColor = context.primaryTextColor
+            setColorFilter(textColor)
         }
     }
 

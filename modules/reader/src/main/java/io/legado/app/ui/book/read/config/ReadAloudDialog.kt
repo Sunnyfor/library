@@ -2,6 +2,7 @@ package io.legado.app.ui.book.read.config
 
 import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -17,6 +18,7 @@ import io.legado.app.help.config.AppConfig
 import io.legado.app.lib.dialogs.selector
 import io.legado.app.lib.theme.bottomBackground
 import io.legado.app.lib.theme.getPrimaryTextColor
+import io.legado.app.lib.theme.primaryTextColor
 import io.legado.app.model.ReadAloud
 import io.legado.app.model.ReadBook
 import io.legado.app.service.BaseReadAloudService
@@ -52,8 +54,7 @@ class ReadAloudDialog : BaseDialogFragment(R.layout.dialog_read_aloud) {
     override fun onFragmentCreated(view: View, savedInstanceState: Bundle?) {
         (activity as ReadBookActivity).bottomDialog++
         val bg = requireContext().bottomBackground
-        val isLight = ColorUtils.isColorLight(bg)
-        val textColor = requireContext().getPrimaryTextColor(isLight)
+        val textColor = requireContext().primaryTextColor
         binding.run {
             rootView.setBackgroundColor(bg)
             tvPre.setTextColor(textColor)
@@ -78,6 +79,9 @@ class ReadAloudDialog : BaseDialogFragment(R.layout.dialog_read_aloud) {
             tvSetting.setTextColor(textColor)
             cbTtsFollowSys.setTextColor(textColor)
             tvBookName.text = ReadBook.book?.name
+            tvBookName.setTextColor(textColor)
+
+            vBack.backgroundTintList = ColorStateList.valueOf(textColor)
             rlBack.setOnClickListener {
                 ivStop.performClick()
                 callBack?.finish()
@@ -183,9 +187,7 @@ class ReadAloudDialog : BaseDialogFragment(R.layout.dialog_read_aloud) {
             binding.ivPlayPause.setImageResource(R.drawable.ic_play_24dp)
             binding.ivPlayPause.contentDescription = getString(R.string.audio_play)
         }
-        val bg = requireContext().bottomBackground
-        val isLight = ColorUtils.isColorLight(bg)
-        val textColor = requireContext().getPrimaryTextColor(isLight)
+        val textColor = requireContext().primaryTextColor
         binding.ivPlayPause.setColorFilter(textColor)
     }
 

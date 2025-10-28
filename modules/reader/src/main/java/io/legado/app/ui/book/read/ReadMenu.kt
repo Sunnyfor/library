@@ -189,22 +189,14 @@ class ReadMenu @JvmOverloads constructor(
             fabNightTheme.setImageResource(R.drawable.ic_brightness)
         }
         initAnimation()
-        if (immersiveMenu) {
-            val lightTextColor = ColorUtils.withAlpha(ColorUtils.lightenColor(textColor), 0.75f)
-            titleBar.setTextColor(textColor)
-            titleBar.setBackgroundColor(bgColor)
-            titleBar.setColorFilter(textColor)
-            tvChapterName.setTextColor(lightTextColor)
-            tvChapterUrl.setTextColor(lightTextColor)
-        } else if (reset) {
-            val bgColor = context.primaryColor
-            val textColor = context.primaryTextColor
-            titleBar.setTextColor(textColor)
-            titleBar.setBackgroundColor(bgColor)
-            titleBar.setColorFilter(textColor)
-            tvChapterName.setTextColor(textColor)
-            tvChapterUrl.setTextColor(textColor)
-        }
+        val bgColor = context.primaryColor
+        val textColor = context.primaryTextColor
+        titleBar.setTextColor(textColor)
+        titleBar.setBackgroundColor(bgColor)
+        titleBar.setColorFilter(textColor)
+        tvChapterName.setTextColor(textColor)
+        tvChapterUrl.setTextColor(textColor)
+
         val brightnessBackground = GradientDrawable()
         brightnessBackground.cornerRadius = 5F.dpToPx()
         brightnessBackground.setColor(ColorUtils.adjustAlpha(bgColor, 0.5f))
@@ -247,11 +239,6 @@ class ReadMenu @JvmOverloads constructor(
         initView(true)
     }
 
-    fun refreshMenuColorFilter() {
-        if (immersiveMenu) {
-            binding.titleBar.setColorFilter(textColor)
-        }
-    }
 
     private fun upColorConfig() {
         bgColor = if (immersiveMenu) {
